@@ -37,7 +37,7 @@ public class ProducerServiceImpl implements ProducerService {
             factory.setUsername(RabbitMqUtil.getRabbitMqUser());
             factory.setPassword(RabbitMqUtil.getRabbitMqPassword());
             Connection connection = factory.newConnection();
-            System.out.println("Connection open status"+connection.isOpen());
+            System.out.println("Connection open status is readily available"+connection.isOpen());
             Channel channel = connection.createChannel();
             channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
             channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes());
